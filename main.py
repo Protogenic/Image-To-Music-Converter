@@ -16,6 +16,9 @@ from drum_patterns import punk, eighth, classic
 from chords import majorChord, minorChord
 from solo import create_solo
 
+# то что касается приложения выносишь в файл app.py
+# в main оставляешь только запуск
+
 app = FastAPI()
 templates: Jinja2Templates = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory="static"), name="static")
@@ -24,12 +27,13 @@ sixteenth_note = 120
 eighth_note = 240
 quarter_note = 480
 
-@app.post("/uploadfile/", response_class=HTMLResponse)
+# ресурсы кладешь в папку api в файл resources
+@app.post("/api/uploadfile/", response_class=HTMLResponse)
 async def create_upload_files(file: UploadFile, request: Request):
     extension = file.filename.split(".")[-1]
     if not extension in {"jpg", "jpeg", "png"}:
         return {"message": "Wrong file extension"}
-
+    # в эндпоинте в самом теле оставляешь только обработку и подготовку ответа API
     source_image = Image.open(file.file)
     source_image.save("static/image." + 'jpg')
     data = BytesIO()
@@ -41,6 +45,8 @@ async def create_upload_files(file: UploadFile, request: Request):
     if extension == 'jpg':
         extension = 'jpeg'
     image_for_chords.save(resized_image, format=extension)
+
+    # всю логику формирования музыки вынеси в папку image_to_music или аналог. У тебя по сути как своя либа получается и там делаешь всю магию.
     hsv_array_for_chords = np.array(image_for_chords.convert('HSV'))
 
     hue_4x4 = hsv_array_for_chords[:, :, 0].mean()
