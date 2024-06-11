@@ -8,11 +8,12 @@
 <script src="https://cdn.jsdelivr.net/combine/npm/tone@14.7.58,npm/@magenta/music@1.23.1/es6/core.js,npm/focus-visible@5,npm/html-midi-player@1.5.0"></script>
 
 <body>
-    <img src="data:image/jpeg;base64,{{ img_data }}" alt="Processed Image"/>
-    <audio controls>
-                <source src="{{ file_name }} " type="audio/mid">
-                Your browser does not support the audio element.
-            </audio>
+    <img src="{{ url_for('static', path='image.jpg') }}"/>
+    <midi-player
+  src="{{ url_for('static', path='music.mid') }}"
+  sound-font visualizer="#myVisualizer">
+</midi-player>
+<midi-visualizer type="piano-roll" id="myVisualizer"></midi-visualizer>
     <div>Tempo: {{ tempo }}</div>
 </body>
 </html>

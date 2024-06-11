@@ -25,7 +25,7 @@ def punk(tempo):
         bass_drum.append(Message('note_on', note=36, velocity=100, time=0, channel=9))
         bass_drum.append(Message('note_off', note=36, velocity=100, time=sixteenth_note*6, channel=9))
 
-    for _ in range(32):
+    for _ in range(64):
         snare_drum.append(Message('note_off', note=38, velocity=100, time=sixteenth_note*4, channel=9))
         snare_drum.append(Message('note_on', note=38, velocity=100, time=0, channel=9))
         snare_drum.append(Message('note_off', note=38, velocity=100, time=sixteenth_note*4, channel=9))
@@ -69,19 +69,19 @@ def eighth(tempo):
 
     for _ in range(64):
         cymbals.append(Message('note_on', note=42, velocity=100, time=0, channel=9))
-        cymbals.append(Message('note_off', note=49, velocity=100, time=sixteenth_note, channel=9))
+        cymbals.append(Message('note_off', note=42, velocity=100, time=sixteenth_note, channel=9))
         cymbals.append(Message('note_on', note=42, velocity=100, time=0, channel=9))
-        cymbals.append(Message('note_off', note=49, velocity=100, time=sixteenth_note, channel=9))
+        cymbals.append(Message('note_off', note=42, velocity=100, time=sixteenth_note, channel=9))
         cymbals.append(Message('note_on', note=42, velocity=100, time=0, channel=9))
-        cymbals.append(Message('note_off', note=49, velocity=100, time=sixteenth_note, channel=9))
+        cymbals.append(Message('note_off', note=42, velocity=100, time=sixteenth_note, channel=9))
         cymbals.append(Message('note_on', note=42, velocity=100, time=0, channel=9))
-        cymbals.append(Message('note_off', note=49, velocity=100, time=eighth_note, channel=9))
+        cymbals.append(Message('note_off', note=42, velocity=100, time=eighth_note, channel=9))
         cymbals.append(Message('note_on', note=42, velocity=100, time=0, channel=9))
-        cymbals.append(Message('note_off', note=49, velocity=100, time=sixteenth_note, channel=9))
+        cymbals.append(Message('note_off', note=42, velocity=100, time=sixteenth_note, channel=9))
         cymbals.append(Message('note_on', note=42, velocity=100, time=0, channel=9))
-        cymbals.append(Message('note_off', note=49, velocity=100, time=sixteenth_note, channel=9))
+        cymbals.append(Message('note_off', note=42, velocity=100, time=sixteenth_note, channel=9))
         cymbals.append(Message('note_on', note=42, velocity=100, time=0, channel=9))
-        cymbals.append(Message('note_off', note=49, velocity=100, time=sixteenth_note, channel=9))
+        cymbals.append(Message('note_off', note=42, velocity=100, time=sixteenth_note, channel=9))
 
     tracks.append(bass_drum)
     tracks.append(snare_drum)
@@ -114,21 +114,10 @@ def classic(tempo):
 
     for _ in range(16):
         cymbals.append(Message('note_on', note=46, velocity=100, time=0, channel=9))
-        cymbals.append(Message('note_off', note=46, velocity=100, time=quarter_note, channel=9))
-        cymbals.append(Message('note_on', note=42, velocity=100, time=0, channel=9))
-        cymbals.append(Message('note_off', note=42, velocity=100, time=quarter_note, channel=9))
-        cymbals.append(Message('note_on', note=42, velocity=100, time=0, channel=9))
-        cymbals.append(Message('note_off', note=42, velocity=100, time=quarter_note, channel=9))
-        cymbals.append(Message('note_on', note=42, velocity=100, time=0, channel=9))
-        cymbals.append(Message('note_off', note=42, velocity=100, time=quarter_note, channel=9))
-        cymbals.append(Message('note_on', note=42, velocity=100, time=0, channel=9))
-        cymbals.append(Message('note_off', note=42, velocity=100, time=quarter_note, channel=9))
-        cymbals.append(Message('note_on', note=42, velocity=100, time=0, channel=9))
-        cymbals.append(Message('note_off', note=42, velocity=100, time=quarter_note, channel=9))
-        cymbals.append(Message('note_on', note=42, velocity=100, time=0, channel=9))
-        cymbals.append(Message('note_off', note=42, velocity=100, time=quarter_note, channel=9))
-        cymbals.append(Message('note_on', note=42, velocity=100, time=0, channel=9))
-        cymbals.append(Message('note_off', note=42, velocity=100, time=quarter_note, channel=9))
+        cymbals.append(Message('note_off', note=46, velocity=100, time=eighth_note, channel=9))
+        for _ in range(15):
+            cymbals.append(Message('note_on', note=42, velocity=100, time=0, channel=9))
+            cymbals.append(Message('note_off', note=42, velocity=100, time=eighth_note, channel=9))
 
     tracks.append(bass_drum)
     tracks.append(snare_drum)
