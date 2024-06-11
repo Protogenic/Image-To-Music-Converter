@@ -1,11 +1,21 @@
 import mido
 from mido import Message, MidiFile, MidiTrack
 
+# константы в upper кейсе все должны быть
 sixteenth_note = 120
 eighth_note = 240
 quarter_note = 480
 
+BASS_SEQUENCE_FIRST_PART = [  # вообще можно в отдельный файл с анстройками музыки типа вынести
+    Message('note_on', note=36, velocity=100, time=0, channel=9),
+    Message('note_off', note=36, velocity=100, time=sixteenth_note*8, channel=9),
+    Message('note_on', note=36, velocity=100, time=0, channel=9),
+    Message('note_off', note=36, velocity=100, time=sixteenth_note*2, channel=9),
+    Message('note_on', note=36, velocity=100, time=0, channel=9),
+    Message('note_off', note=36, velocity=100, time=sixteenth_note*6, channel=9),
+]
 
+# названия функций должны быть с глаголами - так как это экшен
 def punk(tempo):
     tracks = []
 
@@ -18,6 +28,10 @@ def punk(tempo):
     cymbals.append(mido.MetaMessage('set_tempo', tempo=mido.bpm2tempo(tempo)))
 
     for _ in range(32):
+        #  с кучи таких добавлений орнул, сорри
+        # вынеси эту структуру в глобальный список или кортеж на уровень файла, и используй предподготовленные данные
+        # аля посмотри выше пример накидаю и тут уже bass_drum.extend(BASS_SEQUENCE_FIRST_PART)
+        # вообщем везде убирай и рефактори эти кучи добавлений
         bass_drum.append(Message('note_on', note=36, velocity=100, time=0, channel=9))
         bass_drum.append(Message('note_off', note=36, velocity=100, time=sixteenth_note*8, channel=9))
         bass_drum.append(Message('note_on', note=36, velocity=100, time=0, channel=9))

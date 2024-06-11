@@ -1,7 +1,7 @@
 import mido
 from mido import Message, MidiFile, MidiTrack
 
-
+# тоже самое - это нужно в настройки по сути выносить
 def majorChord(key, duration, track):
     track.append(Message('note_on', channel=0, note=key, velocity=64, time=0))
     track.append(Message('note_on', channel=0, note=key + 4, velocity=64, time=0))
