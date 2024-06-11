@@ -54,7 +54,7 @@ async def create_upload_files(file: UploadFile, request: Request):
     value_4x4 = hsv_array_for_chords[:, :, 2].mean()
 
     tempo = round(value_4x4 * 0.5 + 60)
-
+    # разделяй большие функции на более мелкие
     midi_file = MidiFile()
 
     track_chords = MidiTrack()
