@@ -15,8 +15,6 @@ from image_to_music.instruments.solo import create_solo
 from image_to_music.instruments.chords import create_chords_track
 from image_to_music.instruments.bass import create_bass
 
-def test_midi():
-
 
 def create_music_file(image):
     midi_file = MidiFile()
