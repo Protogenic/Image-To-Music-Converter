@@ -7,6 +7,7 @@ def create_bass(hsv_array, tempo):
     track = MidiTrack()
     track.append(mido.Message('program_change', program=34, time=0))
     track.append(mido.MetaMessage('set_tempo', tempo=mido.bpm2tempo(tempo)))
+    track.append(Message('control_change', control=7, value=40, time=0))
 
     for _ in range(2):
         for row in hsv_array:

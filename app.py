@@ -14,11 +14,11 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
 @app.post("/api/uploadfile/", response_class=HTMLResponse)
-async def create_upload_files(file: UploadFile, request: Request):
+def create_upload_files(file: UploadFile, request: Request):
     extension = file.filename.split(".")[-1]
     if extension == 'jfif':
         extension = 'jpg'
-    if not extension in {"jpg", "jpeg", "png"}:
+    if extension not in {"jpg", "jpeg", "png"}:
         return {"message": "Wrong file extension"}
 
     source_image = Image.open(file.file)

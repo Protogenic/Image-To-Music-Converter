@@ -1,0 +1,7 @@
+Pillow
+numpy
+mido
+pytest
+fastapi
+jinja2
+uvicorn

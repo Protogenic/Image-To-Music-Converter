@@ -5,5 +5,5 @@ from app import app, templates
 
 
 @app.get("/")
-async def main_page(request: Request):
+def main_page(request: Request):
     return templates.TemplateResponse("main.html", {"request": request})
