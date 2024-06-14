@@ -2,7 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image and Music Display</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+        }
+        img {
+            max-width: 60%;
+            height: auto;
+        }
+        audio {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 
 <script src="https://cdn.jsdelivr.net/combine/npm/tone@14.7.58,npm/@magenta/music@1.23.1/es6/core.js,npm/focus-visible@5,npm/html-midi-player@1.5.0"></script>
@@ -16,3 +39,4 @@
 <midi-visualizer type="piano-roll" id="myVisualizer"></midi-visualizer>
 </body>
 </html>
+
